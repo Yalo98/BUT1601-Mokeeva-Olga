@@ -1,0 +1,21 @@
+public class Primes 
+{
+	public static void main(String[] args) 
+	{
+		boolean x;
+		for (int j=2; j<=100;j++)
+		{
+			
+			boolean s;
+			s = isPrime(j);
+			if (s==true) System.out.println("prostoe=",j);
+		}
+	}
+	public static boolean isPrime(int j){
+		for (int i =2; i<j;i++)
+		{
+			if ((i%j)==0) return false;
+			else return true;
+		}
+	}
+}
