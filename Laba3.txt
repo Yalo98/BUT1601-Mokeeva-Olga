@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+import static java.lang.Math.*;
+
+public class Laba3 {
+    public static void main(String[] args) {
+        System.out.println("input coords of first point");
+        Point1d first=getPoint();
+        System.out.println("input coords of second point");
+        Point1d second=getPoint();
+        System.out.println("input coords of third point");
+        Point1d third=getPoint();
+        double w13= Point1d.distanceTo(first,third);
+        double w23=Point1d.distanceTo(second,third);
+        double w12=Point1d.distanceTo(first,second);
+        System.out.println("Area = "+ computeArea(w13,w23,w12));
+    }
+
+    private static double scanADouble(){
+        Scanner in = new Scanner(System.in);
+        return in.nextDouble();
+    }
+
+
+    public static Point1d getPoint(){
+        System.out.print("input x: ");
+        double x=scanADouble();
+        System.out.print("input y: ");
+        double y=scanADouble();
+        System.out.print("input z: ");
+        double z=scanADouble();
+        return new Point1d(x,y,z);
+    }
+    public static double computeArea(double w13,double w23, double w12){
+        double p=(w13+w23+w12)/2;
+        double c=Math.sqrt(p*(p-w13)*(p-w23)*(p-w12));
+        return c;
+    }
+}
